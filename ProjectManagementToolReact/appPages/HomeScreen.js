@@ -12,7 +12,7 @@ class HomeScreen extends React.Component {
 
     render() {
         const { navigate } = this.props.navigation;
-        return (
+        if (this.state.userType === "admin")return (
             <View style={styles.container}>
                 <Button
                     onPress={() => navigate('AddIssue')}
@@ -26,6 +26,15 @@ class HomeScreen extends React.Component {
                 />
             </View>
         );
+		else return(
+		    <View style={styles.container}>
+                <Button
+                    onPress={() => navigate('ListIssues')}
+                    title="List Issues"
+                    color="#841584"
+                />
+            </View>
+		);
     }
 }
 

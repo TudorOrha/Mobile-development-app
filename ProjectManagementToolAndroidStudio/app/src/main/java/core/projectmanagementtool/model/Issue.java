@@ -12,6 +12,11 @@ public class Issue implements Serializable {
     private String name;
     private String sprint;
 
+    public Issue(){
+        this.name = "NoArgsConst";
+        this.sprint = "yup";
+    }
+
     public Issue(String name,String sprint){
         this.name = name;
         this.sprint = sprint;

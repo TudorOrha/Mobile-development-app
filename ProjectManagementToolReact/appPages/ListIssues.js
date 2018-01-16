@@ -20,6 +20,7 @@ class ListIssues extends React.Component {
         let data = firebase.database().ref("/issues");
         data.on('value', (issues) => {
             let issuesObjs = Object.values(issues.val());
+			this.issues = [];
             issuesObjs.map((issue) => {
                 this.issues.push(new Issue(issue.name, issue.sprint));
             });
@@ -51,7 +52,7 @@ class ListIssues extends React.Component {
             }
         }
         data.set(this.issues);
-        this.issues = this.issues.splice(0,this.issues.length / 2);
+        //this.issues = this.issues.splice(0,this.issues.length / 2);
         this.setState({dataSource: ds.cloneWithRows(this.issues)});
 
 

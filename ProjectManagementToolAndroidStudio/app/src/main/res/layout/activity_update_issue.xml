@@ -26,11 +26,11 @@
         android:layout_marginBottom="20dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editTextSprint"
+        app:layout_constraintBottom_toTopOf="@+id/editTextPassword"
         tools:layout_editor_absoluteX="85dp" />
 
     <EditText
-        android:id="@+id/editTextSprint"
+        android:id="@+id/editTextPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="300dp"

@@ -1,7 +1,5 @@
 package core.projectmanagementtool;
 
-import java.io.*;
-
 import core.projectmanagementtool.model.Issue;
 
 import android.content.Intent;
@@ -9,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.json.JSONObject;
 
@@ -28,7 +28,7 @@ public class UpdateIssueActivity extends AppCompatActivity {
             currentIssue = new Issue(jsonIssue.get("name").toString(),jsonIssue.get("sprint").toString());
             position = getIntent().getIntExtra("Position",0);
             final EditText nameField = (EditText) findViewById(R.id.editTextName);
-            final EditText sprintField = (EditText) findViewById(R.id.editTextSprint);
+            final EditText sprintField = (EditText) findViewById(R.id.editTextPassword);
             nameField.setText(currentIssue.getName());
             sprintField.setText(currentIssue.getSprint());
         }catch(org.json.JSONException e){}
@@ -36,11 +36,13 @@ public class UpdateIssueActivity extends AppCompatActivity {
 
     public void updateIssue(View button){
         final EditText nameField = (EditText) findViewById(R.id.editTextName);
-        final EditText sprintField = (EditText) findViewById(R.id.editTextSprint);
+        final EditText sprintField = (EditText) findViewById(R.id.editTextPassword);
         String name = nameField.getText().toString();
         String sprint = sprintField.getText().toString();
         this.currentIssue.setName(name);
         this.currentIssue.setSprint(sprint);
+
+        //FirebaseDatabase.getInstance().getReference().child("issues").child();
 
         String jsonIssue = currentIssue.toJSON();
         Intent intent = new Intent();
