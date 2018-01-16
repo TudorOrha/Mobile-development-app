@@ -24,7 +24,8 @@
             android:label="Add Issue" />
         <activity
             android:name=".UpdateIssueActivity"
-            android:label="Update Issue"/>
+            android:label="Update Issue" />
+        <activity android:name=".LoginActivity"></activity>
     </application>
 
 </manifest>

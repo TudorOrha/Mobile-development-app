@@ -2,19 +2,29 @@ import React from 'react';
 import { StyleSheet, ListView, Button, Text} from 'react-native';
 import UpdateIssue from './UpdateIssue';
 import Issue from './Issue';
+import * as firebase from 'firebase';
 
 class ListIssues extends React.Component {
 
     constructor() {
         super();
         const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-        let issue1 = new Issue('Name1','Sprint1');
-        let issue2 = new Issue('Name2','Sprint1');
-        let issue3 = new Issue('Name3','Sprint2');
-        this.issues = [issue1,issue2,issue3];
+        this.issues = [];
         this.state = {
             dataSource: ds.cloneWithRows(this.issues),
         };
+    }
+
+    componentWillMount() {
+        const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+        let data = firebase.database().ref("/issues");
+        data.on('value', (issues) => {
+            let issuesObjs = Object.values(issues.val());
+            issuesObjs.map((issue) => {
+                this.issues.push(new Issue(issue.name, issue.sprint));
+            });
+            this.setState({dataSource: ds.cloneWithRows(this.issues)});
+        });
     }
 
     render() {
@@ -32,13 +42,19 @@ class ListIssues extends React.Component {
 
     returnData(name, sprint, previousName) {
         const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-        for (var i = 0; i < 3; i++) {
+        let data = firebase.database().ref("/issues");
+
+        for (var i = 0; i < this.issues.length; i++) {
             if (this.issues[i].getName() === previousName) {
                 this.issues[i].setName(name);
                 this.issues[i].setSprint(sprint);
             }
         }
-        this.setState({dataSource: ds.cloneWithRows(this.issues)})
+        data.set(this.issues);
+        this.issues = this.issues.splice(0,this.issues.length / 2);
+        this.setState({dataSource: ds.cloneWithRows(this.issues)});
+
+
     }
 }
 

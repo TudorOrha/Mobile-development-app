@@ -2,6 +2,14 @@ import React from 'react';
 import { StyleSheet, View, Button} from 'react-native';
 
 class HomeScreen extends React.Component {
+    constructor(props) {
+        super(props);
+        const {state} = this.props.navigation;
+        this.state = {userType: state.params.userType}
+        console.log(this.state.userType);
+    }
+
+
     render() {
         const { navigate } = this.props.navigation;
         return (

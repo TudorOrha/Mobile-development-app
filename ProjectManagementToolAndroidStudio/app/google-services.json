@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "809516781886",
+    "firebase_url": "https://mobile-project-management-tool.firebaseio.com",
+    "project_id": "mobile-project-management-tool",
+    "storage_bucket": "mobile-project-management-tool.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:809516781886:android:f91683df70687b2a",
+        "android_client_info": {
+          "package_name": "core.projectmanagementtool"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "809516781886-nn25ofo56pjmrs37e2rrag5rk22ng6pn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "core.projectmanagementtool",
+            "certificate_hash": "4aeaef4957c209d520725f3688a687f90aaa6a40"
+          }
+        },
+        {
+          "client_id": "809516781886-pmcpdkpbl24k4k84aclj30dpmgteroi1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDH5T5avREnpC-DQCB6d7vmEs8JRzcAVhI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "809516781886-pmcpdkpbl24k4k84aclj30dpmgteroi1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
