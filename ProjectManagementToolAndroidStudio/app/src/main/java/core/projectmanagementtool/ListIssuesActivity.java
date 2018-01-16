@@ -14,9 +14,15 @@ import android.widget.AdapterView;
 
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class ListIssuesActivity extends AppCompatActivity {
 
+
+    //List<Issue> issuesArray = new ArrayList<>();
+    //issuesArray =
     Issue[] issuesArray = {new Issue("Issue1","Sprint1"),new Issue("Issue2","Sprint1")};
 
     public void loadData(){
